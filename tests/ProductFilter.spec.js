@@ -7,14 +7,13 @@ const { text } = require('node:stream/consumers');
 
 
 test.describe("Product Filter Functionality", () => {
+       
     
-     
-    
-    test('TC_03: Verify Product sorting ascending to descending', async ({ page }) => {
-        await commonSteps(page, "az"); //passing page object and value to common steps function
-    });
     test('TC_04: Verify Product sorting descending to ascending', async ({ page }) => {
         await commonSteps(page, "za");
+    });
+    test('TC_03: Verify Product sorting ascending to descending', async ({ page }) => {
+        await commonSteps(page, "az"); //passing page object and value to common steps function
     });
     test('TC_05: Verify price sorting function low to high', async ({ page }) => {
         await commonSteps(page, "lohi");
