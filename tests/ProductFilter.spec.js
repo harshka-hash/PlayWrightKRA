@@ -2,6 +2,7 @@
 const {expect,test} = require('@playwright/test');
 const { loginPage } = require('../pom/LoginPom.js');
 const { text } = require('node:stream/consumers');
+const { TotalProduct } = require('../pom/TotalProduct.js');
 
 
 
@@ -28,7 +29,10 @@ test.describe("Product Filter Functionality", () => {
         await login.navigate();
         await login.loginWithCorrectCredentials("standard_user", "secret_sauce");
         await expect(page).toHaveURL("https://www.saucedemo.com/inventory.html");
-        const products = page.locator(".inventory_item");
+        
+        const pro = new TotalProduct(page, page.url().toString()); //creating object of total product class and passing page object and url to constructor
+        const products = pro.totalProducts; //storing the locator of total products in a variable to use it in loop to get the product name and price
+        
         let productName = "";  //To store the product name
         let copyProductName = []; //To copy and store the product name to compare with the sorted product name
         let price = ""; //To store the product price
