@@ -4,12 +4,8 @@ const { loginPage } = require('../pom/LoginPom.js');
 const { text } = require('node:stream/consumers');
 const { TotalProduct } = require('../pom/TotalProduct.js');
 
-
-
-
 test.describe("Product Filter Functionality", () => {
-       
-    
+     
     test('TC_03: Verify Product sorting descending to ascending', async ({ page }) => {
         await commonSteps(page, "za");
     });
@@ -22,7 +18,6 @@ test.describe("Product Filter Functionality", () => {
     test('TC_06: Verify price sorting function high to low', async ({ page }) => {
         await commonSteps(page, "hilo");
     });
-
 
     async function commonSteps(page, value){
         const login = new loginPage(page);
@@ -52,9 +47,7 @@ test.describe("Product Filter Functionality", () => {
         await filterLocator.selectOption(value);
         isSortedCheck(filterLocator,copyProductName,copyPrice);
     }
-
-
-     async function isSortedCheck(arr, copyProductName, copyPrice) {
+    async function isSortedCheck(arr, copyProductName, copyPrice) {
         const value = await arr.inputValue();
         if(value === "az"){
             // To check if the products are sorted in ascending order
@@ -81,11 +74,7 @@ test.describe("Product Filter Functionality", () => {
             const actual = copyPrice.sort((a,b) => b-a);
             expect(copyPrice).toEqual(actual);
         }
-              
-    
     }
-
-
 });
 
 
