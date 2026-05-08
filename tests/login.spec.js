@@ -1,7 +1,7 @@
 const {expect, test} = require("@playwright/test");
 const { loginPage } = require("../pom/LoginPom.js");
 
-test('TC_01: Successful Login (Standard User)', async ({ page }) => {
+test('TC_01: Successful Login (Standard User) @smoke', async ({ page }) => {
     const login = new loginPage(page);
     //await page.goto("https://www.saucedemo.com/");
     //await login.loginWithIncorrectCredentials("invalid_user", "invalid_password");

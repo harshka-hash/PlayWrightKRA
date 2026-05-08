@@ -2,7 +2,7 @@ const {expect,test} = require('@playwright/test');
 const { loginPage } = require('../pom/LoginPom.js');
 const { TotalProduct } = require('../pom/TotalProduct.js');
 
-test('TC_08: Verify Checkout Process: should complete the checkout process successfully', async ({page}) => {
+test('TC_08: Verify Checkout Process: should complete the checkout process successfully @smoke', async ({page}) => {
     const login = new loginPage(page);
     await login.navigate();
     await login.loginWithCorrectCredentials("standard_user", "secret_sauce");
