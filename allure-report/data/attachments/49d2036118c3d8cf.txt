@@ -1,0 +1,11 @@
+Sauce Labs Backpack is added to cart
+Sauce Labs Bike Light is added to cart
+Sauce Labs Bolt T-Shirt is added to cart
+Sauce Labs Fleece Jacket is added to cart
+Sauce Labs Onesie is added to cart
+Test.allTheThings() T-Shirt (Red) is added to cart
+Sauce Labs Backpack is removed from cart
+Sauce Labs Bike Light is removed from cart
+Sauce Labs Bolt T-Shirt is removed from cart
+Sauce Labs Fleece Jacket is removed from cart
+Sauce Labs Onesie is removed from cart

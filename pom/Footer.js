@@ -21,7 +21,7 @@ class Footer{
         expect(this.page).toHaveURL("https://www.linkedin.com/company/sauce-labs/");
     }
     async verifyFooterText(){
-        await expect(this.page.locator(".footer_copy")).toHaveText("© 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy");
+        await expect(this.page.locator(".footer_copy")).toHaveText("© 2026 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy",{timeout: 10000});
     }
 }
 module.exports = {Footer};

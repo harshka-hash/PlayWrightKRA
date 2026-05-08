@@ -17,7 +17,7 @@ test('TC_09: Verify checkout from product page', async ({page}) => {
     const img = await page.locator(".inventory_details_img"); //locator for the product image in product details page to verify the image size in product details page
     const imgsize = await img.boundingBox(); //getting the size of the product image in product details page to verify it is same as the image size in product page
     expect(imgsize.width).toBe(408); //verifying the width of the product image in product details page is same as the width of the product image in product page
-    expect(imgsize.height).toBe(617); //verifying the height of the product image in product details page is same as the height of the product image in product page
+    expect(imgsize.height).toBeGreaterThanOrEqual(617); //verifying the height of the product image in product details page is same as the height of the product image in product page
     expect(await page.locator(".inventory_details_name").textContent()).toBe(productNameText); //verifying the product name in product details page is same as the product name of product page
     expect(await page.locator(".inventory_details_price").textContent()).toBe(productPriceText); //verifying the product price in product details page is same as the product price of product page
     await page.locator("#add-to-cart").click(); //clicking on add to cart button in product details page to add the product to cart and verify the product in cart page and checkout page

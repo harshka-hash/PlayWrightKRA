@@ -3,6 +3,7 @@ const {expect,test} = require('@playwright/test');
 const { loginPage } = require('../pom/LoginPom.js');
 const { text } = require('node:stream/consumers');
 const { TotalProduct } = require('../pom/TotalProduct.js');
+const { time } = require('node:console');
 
 test.describe("Product Filter Functionality", () => {
      
@@ -45,12 +46,11 @@ test.describe("Product Filter Functionality", () => {
         }
         const filterLocator = await page.locator(".product_sort_container");
         await filterLocator.selectOption(value);
-        isSortedCheck(filterLocator,copyProductName,copyPrice);
+        isSortedCheck(await filterLocator.inputValue(),copyProductName,copyPrice);
     }
-    async function isSortedCheck(arr, copyProductName, copyPrice) {
-        const value = await arr.inputValue();
+    async function isSortedCheck(locatorValue, copyProductName, copyPrice) {
+        const value = locatorValue;
         if(value === "az"){
-            // To check if the products are sorted in ascending order
             console.log("Products are sorted in ascending order");
             const actual = copyProductName.toSorted();
             expect(copyProductName).toEqual(actual);

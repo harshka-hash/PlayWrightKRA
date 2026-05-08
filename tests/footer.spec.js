@@ -8,13 +8,14 @@ test.describe("Footer Functionality", () => {
         await login.navigate();
         await login.loginWithCorrectCredentials("standard_user", "secret_sauce");
         const footer = new Footer(page, page.url().toString());
+        footer.verifyFooterText();
         const [facebookPage] = await Promise.all([
             context.waitForEvent('page'),
             footer.facebookLink.click()
         ]);
         await expect(facebookPage).toHaveURL("https://www.facebook.com/saucelabs");
         await facebookPage.close();
-        footer.verifyFooterText();
+        
         //console.log(page.url());
         /*
         const [linkedinPage] = await Promise.all([
